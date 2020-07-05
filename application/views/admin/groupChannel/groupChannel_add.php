@@ -27,16 +27,27 @@
                   <?= isset($msg)? $msg: ''; ?>
               </div>
             <?php endif; ?>
-           
-            <?php echo form_open(base_url('admin/group/add'), 'class="form-horizontal"');  ?> 
+
+            <?php echo form_open(base_url('admin/groupChannel/add'), 'class="form-horizontal"');  ?>
               <div class="form-group">
                 <label for="group_name" class="col-sm-2 control-label">Group Name</label>
 
                 <div class="col-sm-9">
-                  <input type="text" name="group_name" class="form-control" id="group_name" placeholder="">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="">
+                </div>
+                <label for="group_name" class="col-sm-2 control-label">Group Description</label>
+
+                <div class="col-sm-9">
+                  <input type="text" name="description" class="form-control" id="description" placeholder="">
                 </div>
               </div>
-           
+              <label for="group_name" class="col-sm-2 control-label">Group Status</label>
+
+              <div class="col-sm-9">
+                <input type="text" name="status" class="form-control" id="status" placeholder="">
+              </div>
+            </div>
+
               <div class="form-group">
                 <div class="col-md-11">
                   <input type="submit" name="submit" value="Add Group" class="btn btn-info pull-right">
@@ -47,9 +58,9 @@
           <!-- /.box-body -->
       </div>
     </div>
-  </div>  
+  </div>
 
-</section> 
+</section>
 
 
  <script>

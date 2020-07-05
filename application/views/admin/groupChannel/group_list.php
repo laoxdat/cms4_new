@@ -1,4 +1,4 @@
-  
+
  <section class="content">
 
   <div class="row">
@@ -8,9 +8,9 @@
           <h4><i class="fa fa-list"></i> &nbsp; Group List</h4>
         </div>
         <div class="col-md-6 text-right">
-          <a href="<?= base_url('admin/group/add'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> Add New Group</a>
+          <a href="<?= base_url('admin/groupChannel/add'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> Add New Group</a>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -25,14 +25,26 @@
         <tr>
           <th>No</th>
           <th>Group Name</th>
+            <th>Status</th>
           <th style="width: 150px;" class="text-right">Action</th>
         </tr>
         </thead>
         <tbody>
-          <?php $count=0; foreach($all_groups as $row):?>
+          <?php $count=0; foreach($groupChannel_detail as $row):?>
           <tr>
             <td><?= ++$count; ?></td>
-            <td><?= $row['group_name']; ?></td>
+            <td><?= $row['name']; ?></td>
+            <td><input class='tgl tgl-ios tgl_checkbox'
+
+							data-id="<?php echo $row['status']; ?>"
+
+							id='cb_<?=$row['status']?>'
+
+							type='checkbox' <?php echo ($row['status']==1)? "checked" : ""; ?> />
+
+							<label class='tgl-btn' for='cb_<?=$row['status']?>'></label>
+
+						</td>
             <td><a title="Delete" class="delete btn btn-sm btn-danger pull-right '.$disabled.'" data-href="<?= base_url('admin/group/del/'.$row['id']); ?>" data-toggle="modal" data-target="#confirm-delete"> <i class="fa fa-trash-o"></i></a>
             <a title="Edit" class="update btn btn-sm btn-primary pull-right" href="<?= base_url('admin/group/edit/'.$row['id'])?>"> <i class="fa fa-pencil-square-o"></i></a>
             </td>
@@ -44,7 +56,7 @@
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
-</section>  
+</section>
 
 <!-- Modal -->
 <div id="confirm-delete" class="modal fade" role="dialog">
@@ -85,4 +97,3 @@
   <script>
     $("#users").addClass('active');
   </script>
-
